@@ -6,19 +6,19 @@ The Flask server exposes a POST endpoint at `/get-pitch-representation`. This en
 ## Methodology
 The first step of our process involves object detection on the image, where bounding boxes are superimposed on each player and the ball. This detection procedure takes place in the [object detection] folder, utilizing a fine-tuned yolov5 multi-class classification model that specifically recognizes football players and balls.
 
-![Alt Text](images/labeled.jpg)
+![Pitch with bounding boxes around players and football](images/labeled.jpg)
 
 We aim to focus solely on outfield players, but we acknowledge that the model may inadvertently pick up goalkeepers, referees, and other individuals near the pitch. To counter this, we employ the DBScan algorithm to discern two clusters from the upper half of each bounding box. Any identified individual who falls outside these two clusters is assigned the 'Other' label.
 
-![Alt Text](images/marked.png)
+![Players have teams assigned](images/marked.png)
 
 For each detected player, we consider the center of the bounding box's base as the player's location on the pitch.
 
-![Alt Text](images/bottom_center.png)
+![Marker on each player](images/bottom_center.png)
 
-Subsequently, the task is to compute the homography matrix. This matrix serves as a translator between a 2D top-down view of a football pitch and the actual football pitch identified in the image. To start, we detect the pitch itself.
+Subsequently, the task is to compute the homography matrix. This matrix serves as a translator between a 2D top-down view of a football pitch and the actual football pitch identified in the image. To start, we detect the pitch itself. [ADD the Neural Net method to solve for this and give reference]
 
-![Alt Text](images/detect_pitch_outline.png)
+![Lines on the pitch are identified](images/detect_pitch_outline.png)
 
 Following pitch detection, we calculate a homography matrix that maps from the top-down pitch view to the one captured in the given image. This calculation allows us to pinpoint the player's position on a top-down pitch view. We then normalize the coordinates of each player and the ball to secure a consistent representation of the football pitch. This normalized representation is stored in the following format:
 
