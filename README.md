@@ -16,7 +16,9 @@ For each detected player, we consider the center of the bounding box's base as t
 
 ![Marker on each player](images/bottom_center.png)
 
-Subsequently, the task is to compute the homography matrix. This matrix serves as a translator between a 2D top-down view of a football pitch and the actual football pitch identified in the image. To start, we detect the pitch itself. [ADD the Neural Net method to solve for this and give reference]
+Subsequently, the task is to compute the homography matrix. This matrix serves as a translator between a 2D top-down view of a football pitch and the actual football pitch identified in the image. To start, we detect the pitch itself. 
+
+To perform this task, we apply a fine-tuned semantic segmentation deep learning model tailored for detecting football pitch lines. It utilizes a specialized version of the DeepLabV3 architecture with a ResNet-50 backbone. The end result of the model application is a segmented mask, highlighting the identified football pitch lines when overlaid on the original image.
 
 ![Lines on the pitch are identified](images/detect_pitch_outline.png)
 
@@ -25,8 +27,8 @@ Following pitch detection, we calculate a homography matrix that maps from the t
 ```json
 {
     "ball_crds": [[0.594, 0.5005111389160156]], 
-    "team1_crds": [[0.1082, 0.557], ..., [0.174, 0.226]], 
-    "team2_crds": [[0.871, 0.448], ..., [0.365, 0.301]]
+    "team1_crds": [[0.1082, 0.557], [0.174, 0.226]], 
+    "team2_crds": [[0.871, 0.448], [0.365, 0.301]]
 }
 ```
 
@@ -67,8 +69,8 @@ The response is a JSON object with the positions of players and the ball. All co
 ```json
 {
     "ball_crds": [[0.594, 0.5005111389160156]], 
-    "team1_crds": [[0.1082, 0.557], ..., [0.174, 0.226]], 
-    "team2_crds": [[0.871, 0.448], ..., [0.365, 0.301]]
+    "team1_crds": [[0.1082, 0.557], [0.174, 0.226]], 
+    "team2_crds": [[0.871, 0.448], [0.365, 0.301]]
 }
 ```
 ## Project Roadmap
