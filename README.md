@@ -82,7 +82,9 @@ Further work has focused on tracking players through multiple frames. The DeepSO
 
 Using the homography transformation in tandem with the video data, we are able to create a video of where the players are on the pitch through time via a bird's eye view. Note that the below clip does not correspond to the above video, and refinement on the homography approach needs to be performed for an entirely accurate pitch representation.
 
-[![Video Preview](./images/preview_frame.png)](./images/video.mp4)
+<!-- [![Video Preview](./images/preview_frame.png)](./images/video.mp4) -->
+
+<video src='./images/video.mp4' width=180/>
 
 
 ## References
