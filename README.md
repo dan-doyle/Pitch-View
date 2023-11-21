@@ -82,10 +82,7 @@ Further work has focused on tracking players through multiple frames. The DeepSO
 
 Using the homography transformation in tandem with the video data, we are able to create a video of where the players are on the pitch through time via a bird's eye view. Note that the below clip does not correspond to the above video, and refinement on the homography approach needs to be performed for an entirely accurate pitch representation.
 
-<!-- [![Video Preview](./images/preview_frame.png)](./images/video.mp4) -->
-
-[<img src="./images/preview_frame.png" width="50%">](./images/video.mp4)
-
+![](./images/minimap.gif)
 
 ## References
 - The homography Neural Network has been trained  and provided by [SoccerNet](https://www.soccer-net.org/).
