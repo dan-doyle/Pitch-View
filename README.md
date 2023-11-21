@@ -84,7 +84,7 @@ Using the homography transformation in tandem with the video data, we are able t
 
 <!-- [![Video Preview](./images/preview_frame.png)](./images/video.mp4) -->
 
-<video src='./images/video.mp4' width=180/>
+[<img src="./images/preview_frame.png" width="50%">](./images/video.mp4)
 
 
 ## References
