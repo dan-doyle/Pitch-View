@@ -73,8 +73,17 @@ The response is a JSON object with the positions of players and the ball. All co
     "team2_crds": [[0.871, 0.448], [0.365, 0.301]]
 }
 ```
-## Project Roadmap
-- add
+
+### Further work: Object Tracking
+
+Further work has focused on tracking players through multiple frames. The DeepSORT algorithm works well in using multi-frame information to identify players even when occluded, which is commonly the case. Each player is assigned a `player_id`. This allows us to perform our team assignment using multiframe information. In the image below we see each player with their `player_id` and a path drawn to show the player's movement from previous frames.
+
+![Object Tracking](./images/object_tracking.png)
+
+Using the homography transformation in tandem with the video data, we are able to create a video of where the players are on the pitch through time via a bird's eye view. Note that the below clip does not correspond to the above video, and refinement on the homography approach needs to be performed for an entirely accurate pitch representation.
+
+[![Video Preview](./images/preview_frame.png)](./images/video.mp4)
+
 
 ## References
-- add
+- The homography Neural Network has been trained  and provided by [SoccerNet](https://www.soccer-net.org/).
